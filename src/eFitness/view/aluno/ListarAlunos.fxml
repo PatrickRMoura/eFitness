@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eFitness.controller.aluno.ListarAlunosController">
+   <children>
+      <VBox fx:id="painelAluno" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastrar" />
+                  <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editarDados" text="Editar" />
+                  <Button fx:id="btnDeletar" mnemonicParsing="false" onAction="#deletarAluno" text="Deletar" />
+              </items>
+            </ToolBar>
+            <TableView fx:id="tableViewAluno" prefHeight="360.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="tableColumnCliente" prefWidth="75.0" text="Cliente" />
+                <TableColumn fx:id="tableColumnNome" prefWidth="125.0" text="Nome do Aluno" />
+                  <TableColumn fx:id="tableColumnTipoAluno" prefWidth="130.0" text="Tipo do Aluno" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
