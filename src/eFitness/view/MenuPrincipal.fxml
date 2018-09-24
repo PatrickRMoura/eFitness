@@ -10,30 +10,18 @@
    <children>
       <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Arquivo">
+          <Menu mnemonicParsing="false" text="eFitness">
             <items>
-              <MenuItem mnemonicParsing="false" text="Sair" />
+              <MenuItem mnemonicParsing="false" text="Usuário" onAction="#listarUsuarios"/>
+              <MenuItem mnemonicParsing="false" text="Sair"/>
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Cliente">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#cadastrarCliente" text="Cadastrar" />
-                  <MenuItem mnemonicParsing="false" onAction="#listarClientes" text="Listar Todos" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Aluno">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastrar Aluno" />
-                  <MenuItem mnemonicParsing="false" onAction="#listarAlunos" text="Listar todos os Alunos" />
-              </items>
-            </Menu>
+          <Menu mnemonicParsing="false" text="Aluno" onAction="#listarAlunos"/>
+          <Menu mnemonicParsing="false" text="Exercício" onAction="#listarExercicios"/>
         </menus>
       </MenuBar>
       <ToolBar layoutY="25.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-        <items>
-          <Button mnemonicParsing="false" onAction="#cadastrarCliente" text="Cadastrar Cliente" />
-            <Button mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastrar Aluno" />
-        </items>
+    
       </ToolBar>
    </children>
 </AnchorPane>

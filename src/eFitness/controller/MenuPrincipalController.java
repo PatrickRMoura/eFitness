@@ -31,18 +31,7 @@ public class MenuPrincipalController implements Initializable {
     }    
 
     @FXML
-    public void cadastrarCliente(ActionEvent event) throws IOException {
-        Parent root;
-        Stage stage = new Stage();
-        root = FXMLLoader.load(eFitness.eFitness.class.getResource("view/cliente/CadastrarCliente.fxml"));
-        stage.setScene(new Scene(root));
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initOwner(painelMenuPrincipal.getScene().getWindow());
-        stage.showAndWait();
-    }
-    
-    @FXML
-    public void listarClientes(ActionEvent event) throws IOException{
+    public void listarUsuarios(ActionEvent event) throws IOException{
         Parent root;
         Stage stage = new Stage();
         root = FXMLLoader.load(eFitness.eFitness.class.getResource("view/cliente/ListarClientes.fxml"));
@@ -51,12 +40,12 @@ public class MenuPrincipalController implements Initializable {
         stage.initOwner(painelMenuPrincipal.getScene().getWindow());
         stage.showAndWait();
     }
-    
+  
     @FXML
-    public void cadastrarAluno(ActionEvent event) throws IOException {
+    public void listarAlunos(ActionEvent event) throws IOException {
         Parent root;
         Stage stage = new Stage();
-        root = FXMLLoader.load(eFitness.eFitness.class.getResource("view/aluno/CadastrarAluno.fxml"));
+        root = FXMLLoader.load(eFitness.eFitness.class.getResource("view/aluno/ListarAlunos.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(painelMenuPrincipal.getScene().getWindow());
@@ -64,7 +53,7 @@ public class MenuPrincipalController implements Initializable {
     }
     
     @FXML
-    public void listarAlunos(ActionEvent event) throws IOException {
+    public void listarExercicios(ActionEvent event) throws IOException {
         Parent root;
         Stage stage = new Stage();
         root = FXMLLoader.load(eFitness.eFitness.class.getResource("view/aluno/ListarAlunos.fxml"));
