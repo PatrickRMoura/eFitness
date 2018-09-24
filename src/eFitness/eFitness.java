@@ -16,7 +16,6 @@ public class eFitness extends Application{
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("view/MenuPrincipal.fxml"));
-        
         Scene scene = new Scene(root);
         
         stage.setMinHeight(600);
