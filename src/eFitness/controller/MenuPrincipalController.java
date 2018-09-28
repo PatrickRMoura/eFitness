@@ -56,7 +56,7 @@ public class MenuPrincipalController implements Initializable {
     public void listarExercicios(ActionEvent event) throws IOException {
         Parent root;
         Stage stage = new Stage();
-        root = FXMLLoader.load(eFitness.eFitness.class.getResource("view/aluno/ListarAlunos.fxml"));
+        root = FXMLLoader.load(eFitness.eFitness.class.getResource("view/exercicio/ListarExercicios.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(painelMenuPrincipal.getScene().getWindow());

@@ -11,10 +11,10 @@ import java.sql.SQLException;
 public class ConnectionFactory {
     private final static String HOST = "localhost";
     private final static String PORT = "5432";
-    private final static String BD = "eFitness";
+    private final static String BD = "efitness";
     private final static String URL = "jdbc:postgresql://"+HOST+":"+PORT+"/"+BD;
     private final static String USUARIO = "postgres";
-    private final static String SENHA = "123456";
+    private final static String SENHA = "1234";
     
     public static Connection getConnection(){
         Connection conexao = null;
