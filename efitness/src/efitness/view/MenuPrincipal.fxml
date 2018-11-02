@@ -18,7 +18,8 @@
           <Menu mnemonicParsing="false" text="Aluno">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastrar" />
-                  <MenuItem mnemonicParsing="false" onAction="#listarAlunos" text="Listar Todos" />
+              <MenuItem mnemonicParsing="false" onAction="#listarAlunos" text="Listar Todos" />
+              <MenuItem mnemonicParsing="false" onAction="#cadastrarTreino" text="Treinos" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Exercicio">
