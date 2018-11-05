@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="261.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="efitness.controller.treino.CadastrarTreinoController">
+   <children>
+      <GridPane layoutX="78.0" layoutY="39.0" prefHeight="114.0" prefWidth="315.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Aluno" />
+            <Label text="Exercicio" GridPane.rowIndex="1" />
+            <Label text="Início" GridPane.rowIndex="2" />
+            <ComboBox fx:id="idAluno" promptText="Selecione" GridPane.columnIndex="1" />
+            
+            <TextField fx:id="exercicio" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <DatePicker fx:id="datepicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button fx:id="btnSalvar" layoutX="331.0" layoutY="175.0" mnemonicParsing="false" onAction="#salvarDados" text="Salvar" />
+      <Button fx:id="btnCancelar" layoutX="250.0" layoutY="175.0" mnemonicParsing="false" onAction="#cancelarDados" text="Cancelar" />
+   </children>
+</AnchorPane>
