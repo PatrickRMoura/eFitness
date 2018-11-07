@@ -17,10 +17,7 @@ import efitness.model.Aluno;
 import efitness.negocio.AlunoNegocio;
 import javafx.scene.control.ComboBox;
 
-/**
- *
- * @author Patrick Moura
- */
+
 public class CadastrarTreinoController implements Initializable {
     private AlunoNegocio alunoNegocio;
     private List<Aluno> listaAlunos;
@@ -28,10 +25,6 @@ public class CadastrarTreinoController implements Initializable {
     private ObservableList<Aluno> observableListaPacientes;
     
     @FXML private ComboBox<Aluno> idAluno;
-    @FXML private TableColumn<Aluno, String> tableColumnRG;
-    @FXML private TableColumn<Aluno, String> tableColumnNome;
-    @FXML private TableColumn<Aluno, String> tableColumnTelefone;
-    @FXML private TextField textProcurarNome;
     @FXML private Button btnCancelar;
     @FXML private Button btnSalvar;
 
