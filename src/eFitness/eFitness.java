@@ -1,4 +1,4 @@
-package eFitness;
+package efitness;
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -11,11 +11,12 @@ import javafx.stage.Stage;
  *
  * @author Patrick Moura
  */
-public class eFitness extends Application{
+public class Efitness extends Application{
 
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("view/MenuPrincipal.fxml"));
+        
         Scene scene = new Scene(root);
         
         stage.setMinHeight(600);

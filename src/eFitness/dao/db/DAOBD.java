@@ -1,13 +1,14 @@
-package eFitness.dao.db;
+package efitness.dao.db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import eFitness.dao.DAO;
+import efitness.dao.DAO;
 
 /**
  *
  * @author Patrick Moura
+ * @param <T>
  */
 public abstract class DAOBD<T> implements DAO<T> {
     protected Connection conexao;

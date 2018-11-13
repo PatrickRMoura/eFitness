@@ -1,4 +1,4 @@
-package eFitness.dao;
+package efitness.dao;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package eFitness.negocio;
+package efitness.negocio;
 
 /**
  *

@@ -1,21 +1,25 @@
-package eFitness.model;
-
-import java.util.Objects;
+package efitness.model;
 
 /**
  *
  * @author Patrick Moura
  */
+
 public class Aluno {
     private int id;
-    private String nome, tipo;
-    private Personal personal;
-    
-    public Aluno(int id, String nome, String tipo, Personal personal) {
+    private String rg, nome, telefone;
+
+    public Aluno(int id, String rg, String nome, String telefone) {
         this.id = id;
+        this.rg = rg;
         this.nome = nome;
-        this.tipo = tipo;
-        this.personal = personal;
+        this.telefone = telefone;
+    }
+    
+    public Aluno(String rg, String nome, String telefone) {
+        this.rg = rg;
+        this.nome = nome;
+        this.telefone = telefone;
     }
 
     public int getId() {
@@ -26,49 +30,28 @@ public class Aluno {
         this.id = id;
     }
 
-    public Aluno(String nome, String tipo) {
-        this.nome = nome;
-        this.tipo = tipo;
+    public String getRg() {
+        return rg;
     }
 
-    public Aluno(String nome, String tipo, Personal personal) {
-        this.nome = nome;
-        this.tipo = tipo;
-        this.personal = personal;
+    public void setRg(String rg) {
+        this.rg = rg;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public Personal getPersonal() {
-        return personal;
-    }
-    
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Aluno outro = (Aluno) obj;
-        if (!Objects.equals(this.nome, outro.nome)) {
-            return false;
-        }
-        return true;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public String getTelefone() {
+        return telefone;
     }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    
 }

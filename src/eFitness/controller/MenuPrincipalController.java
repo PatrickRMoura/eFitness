@@ -1,4 +1,4 @@
-package eFitness.controller;
+package efitness.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +24,8 @@ public class MenuPrincipalController implements Initializable {
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -31,21 +33,32 @@ public class MenuPrincipalController implements Initializable {
     }    
 
     @FXML
-    public void listarUsuarios(ActionEvent event) throws IOException{
+    public void cadastrarAluno(ActionEvent event) throws IOException {
         Parent root;
         Stage stage = new Stage();
-        root = FXMLLoader.load(eFitness.eFitness.class.getResource("view/cliente/ListarClientes.fxml"));
+        root = FXMLLoader.load(efitness.Efitness.class.getResource("view/aluno/CadastrarAluno.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(painelMenuPrincipal.getScene().getWindow());
         stage.showAndWait();
     }
-  
+    
     @FXML
-    public void listarAlunos(ActionEvent event) throws IOException {
+    public void listarAlunos(ActionEvent event) throws IOException{
         Parent root;
         Stage stage = new Stage();
-        root = FXMLLoader.load(eFitness.eFitness.class.getResource("view/aluno/ListarAlunos.fxml"));
+        root = FXMLLoader.load(efitness.Efitness.class.getResource("view/aluno/ListarAlunos.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelMenuPrincipal.getScene().getWindow());
+        stage.showAndWait();
+    }
+    
+    @FXML
+    public void cadastrarExercicio(ActionEvent event) throws IOException {
+        Parent root;
+        Stage stage = new Stage();
+        root = FXMLLoader.load(efitness.Efitness.class.getResource("view/exercicio/CadastrarExercicio.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(painelMenuPrincipal.getScene().getWindow());
@@ -56,10 +69,26 @@ public class MenuPrincipalController implements Initializable {
     public void listarExercicios(ActionEvent event) throws IOException {
         Parent root;
         Stage stage = new Stage();
-        root = FXMLLoader.load(eFitness.eFitness.class.getResource("view/aluno/ListarAlunos.fxml"));
+        root = FXMLLoader.load(efitness.Efitness.class.getResource("view/exercicio/ListarExercicios.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(painelMenuPrincipal.getScene().getWindow());
         stage.showAndWait();
+    }
+    
+    @FXML
+    public void cadastrarTreino(ActionEvent event) throws IOException {
+        Parent root;
+        Stage stage = new Stage();
+        root = FXMLLoader.load(efitness.Efitness.class.getResource("view/exercicio/CadastrarTreino.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelMenuPrincipal.getScene().getWindow());
+        stage.showAndWait();
+    }
+    
+       @FXML
+    public void Sair(ActionEvent event) throws IOException {
+        System.exit(0);
     }
 }

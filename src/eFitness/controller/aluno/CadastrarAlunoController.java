@@ -1,27 +1,17 @@
-package eFitness.controller.aluno;
+package efitness.controller.aluno;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import eFitness.model.Personal;
-import eFitness.model.Aluno;
-import eFitness.negocio.ClienteNegocio;
-import eFitness.negocio.NegocioException;
-import eFitness.negocio.AlunoNegocio;
+import efitness.model.Aluno;
+import efitness.negocio.AlunoNegocio;
+import efitness.negocio.NegocioException;
 
 /**
  *
@@ -31,84 +21,50 @@ public class CadastrarAlunoController implements Initializable {
     private AlunoNegocio alunoNegocio;
     private Aluno alunoSelecionado;
     
-    private List<Personal> listaClientes;
-    private ClienteNegocio clienteNegocio;
-    private ObservableList<Personal> observableListaPacientes;
-    private Personal clienteSelecionado;
-    
+    @FXML private TextField textRG;
+    @FXML private TextField textNome;
+    @FXML private TextField textTelefone;
+    @FXML private Button btnCancelar;
     @FXML private Button btnSalvar;
-    @FXML private TextField textCliente;
-    @FXML private TextField textNomeAluno;
-    @FXML private TextField textTipoAluno;
-    @FXML private TextField textPesquisarCliente;
-    @FXML private TableView<Personal> tableViewCliente;
-    @FXML private TableColumn<Personal, String> tableColumnNome;
-    @FXML private TableColumn<Personal, String> tableColumnTelefone;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         alunoNegocio = new AlunoNegocio();
-        clienteNegocio = new ClienteNegocio();
     }
     
     @FXML
-    public void salvarDados(){
+    public void salvarDados() {
         Stage stage = (Stage) btnSalvar.getScene().getWindow();
         
         if (alunoSelecionado == null) {
-            if (textNomeAluno.getText().length() > 0 && textCliente.getText().length() > 0 && textTipoAluno.getText().length() > 0) {
-                System.out.println(textNomeAluno.getText().length());
-                String tipoOpcao = "cadastrar";
-                if (confirmarAcao(tipoOpcao)) {
-                    try {
-                        alunoNegocio.salvar(new Aluno(textNomeAluno.getText(), textTipoAluno.getText(), clienteSelecionado));
-                        stage.close();
-                    } catch (Exception e) {
-                        System.out.println("Errou");
-                    }
-                }       
-            }
-        } else {
-            String tipoOpcao = "editar";
-            if (confirmarAcao(tipoOpcao)) {
+            if (confirmarAcao()) {
                 try {
-                    alunoSelecionado.setNome(textNomeAluno.getText());
-                    alunoSelecionado.setTipo(textTipoAluno.getText());
-                    alunoNegocio.atualizar(alunoSelecionado);
-                    stage.close();
-                } catch (NegocioException e) {
-                    e.printStackTrace();
+                    alunoNegocio.salvar(new Aluno(textRG.getText(),textNome.getText(),textTelefone.getText()));
+                } catch (NegocioException ex) {
                 }
             }
+            
+        } else {
+            if (confirmarAcao()) {
+                try {
+                    alunoSelecionado.setNome(textNome.getText());
+                    alunoSelecionado.setTelefone(textTelefone.getText());
+                    alunoNegocio.atualizar(alunoSelecionado);
+                } catch (NegocioException ex) {
+                }   
+            }
         }
+        stage.close();
     }
     
     @FXML
-    public void getPesquisarNomeCliente(){
-        try {
-            tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-            tableColumnTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
-            
-            listaClientes = clienteNegocio.listarPorNome(textPesquisarCliente.getText());
-            
-            observableListaPacientes = FXCollections.observableArrayList(listaClientes);
-            tableViewCliente.setItems(observableListaPacientes);
-        } catch (NegocioException ex) {
-            Logger.getLogger(CadastrarAlunoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void cancelarDados(){
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        stage.close();
     }
     
-    public Personal getCliente(){
-        clienteSelecionado = tableViewCliente.getSelectionModel().getSelectedItem();
-        if (clienteSelecionado != null && alunoSelecionado == null) {
-            textCliente.setText(clienteSelecionado.getNome());
-            return clienteSelecionado;
-        }
-        return null;
-    }
-    
-    public boolean confirmarAcao(String tipo){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Você deseja realmente "+ tipo +" essa entrada?", ButtonType.YES, ButtonType.NO);
+    public boolean confirmarAcao(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Você deseja realmente alterar essa entrada?", ButtonType.YES, ButtonType.NO);
         alert.showAndWait();
         
         if (alert.getResult() == ButtonType.YES) {
@@ -116,12 +72,16 @@ public class CadastrarAlunoController implements Initializable {
         }
         return false;
     }
-
-    public void setAlunoSelecionado(Aluno alunoSelecionado) {
+    
+    public void setAlunoSelecionado(Aluno alunoSelecionado){
         this.alunoSelecionado = alunoSelecionado;
-        textCliente.setText("1");
-        textNomeAluno.setText(alunoSelecionado.getNome());
-        textTipoAluno.setText(alunoSelecionado.getTipo());
-        textCliente.setDisable(true);
+        textNome.setText(alunoSelecionado.getNome());
+        textRG.setText(alunoSelecionado.getRg());
+        textTelefone.setText(alunoSelecionado.getTelefone());
+        textRG.setDisable(true);
+    }
+    
+    public Aluno getAlunoSelecionado(){
+        return alunoSelecionado;
     }
 }

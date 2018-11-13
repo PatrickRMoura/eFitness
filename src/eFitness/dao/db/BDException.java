@@ -1,4 +1,4 @@
-package eFitness.dao.db;
+package efitness.dao.db;
 
 /**
  *
