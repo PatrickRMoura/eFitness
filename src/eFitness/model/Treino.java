@@ -19,6 +19,12 @@ public class Treino {
         this.data = data;
         this.objetivo = objetivo;
     }
+    
+    public Treino(Aluno aluno, Date data, String objetivo) {
+        this.aluno = aluno;
+        this.data = data;
+        this.objetivo = objetivo;
+    }
 
     public int getId() {
         return id;

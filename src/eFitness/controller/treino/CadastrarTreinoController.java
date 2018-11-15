@@ -10,37 +10,64 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import efitness.model.Aluno;
+import efitness.model.Treino;
 import efitness.negocio.AlunoNegocio;
+import efitness.negocio.NegocioException;
+import efitness.negocio.TreinoNegocio;
+import java.time.ZoneId;
+import java.util.Date;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import javafx.util.StringConverter;
 
 
 public class CadastrarTreinoController implements Initializable {
-    private AlunoNegocio alunoNegocio;
+    private TreinoNegocio treinoNegocio;
+    private AlunoNegocio alunoNegocio = new AlunoNegocio();
     private List<Aluno> listaAlunos;
-    private Aluno alunoSelecionado;
-    private ObservableList<Aluno> observableListaPacientes;
+    private ObservableList<Aluno> observableListAlunos;
     
     @FXML private ComboBox<Aluno> idAluno;
     @FXML private Button btnCancelar;
     @FXML private Button btnSalvar;
-
+    @FXML private DatePicker datepicker;
+    @FXML private TextField objetivo;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        alunoNegocio = new AlunoNegocio();
+        treinoNegocio = new TreinoNegocio();
         listarAlunos();
     }
     
     @FXML
     public void listarAlunos(){
-        
         listaAlunos = alunoNegocio.listar();
+        observableListAlunos = FXCollections.observableArrayList();
         
-        observableListaPacientes = FXCollections.observableArrayList(listaAlunos);
-        idAluno.setItems(observableListaPacientes);
+        
+        for(Aluno aluno : listaAlunos){
+            Aluno a = new Aluno(aluno.getId(), aluno.getNome());
+            observableListAlunos.add(a);
+        }
+
+        idAluno.setItems(observableListAlunos);
+        
+        idAluno.setConverter(new StringConverter<Aluno>() {
+            @Override
+            public String toString(Aluno object) {
+                return object.getNome();
+            }
+
+            @Override
+            public Aluno fromString(String string) {
+                return idAluno.getItems()
+                              .stream()
+                              .filter(a -> a.getNome().equals(string)).findFirst().orElse(null);
+            }
+        });
     }
     
     public boolean confirmarAcao(){
@@ -59,10 +86,18 @@ public class CadastrarTreinoController implements Initializable {
         stage.close();
     }
 
-@FXML
-    public void salvarDados(){
+    @FXML
+    public void salvarDados() throws NegocioException{
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
-        stage.close();
+        Aluno alunoSelecionado = idAluno.getValue();
+        Date dataInicio = Date.from(datepicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        String obj = objetivo.getText();
+        treinoNegocio.salvar(new Treino(alunoSelecionado, dataInicio, obj));
+        
+        System.out.println("Aluno: " + alunoSelecionado);
+        System.out.println("Data: " + dataInicio);
+        System.out.println("Objetivo: " + obj);
+        //stage.close();
     }
     
 }

@@ -24,7 +24,7 @@ public class TreinoDAOBD extends DAOBD<Treino> implements TreinoDAO{
             conectarObtendoID(sql);
             
             comando.setInt(1, treino.getAluno().getId());
-            comando.setString(2, treino.getData().toString());
+            comando.setDate(2, new java.sql.Date(treino.getData().getTime()));
             comando.setString(3, treino.getObjetivo());
             
             comando.executeUpdate();
