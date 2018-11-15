@@ -21,6 +21,11 @@ public class Aluno {
         this.nome = nome;
         this.telefone = telefone;
     }
+    
+    public Aluno(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
 
     public int getId() {
         return id;
