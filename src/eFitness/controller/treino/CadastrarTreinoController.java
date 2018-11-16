@@ -32,7 +32,6 @@ public class CadastrarTreinoController implements Initializable {
     
     @FXML private ComboBox<Aluno> idAluno;
     @FXML private Button btnCancelar;
-    @FXML private Button btnSalvar;
     @FXML private DatePicker datepicker;
     @FXML private TextField objetivo;
     
@@ -94,10 +93,7 @@ public class CadastrarTreinoController implements Initializable {
         String obj = objetivo.getText();
         treinoNegocio.salvar(new Treino(alunoSelecionado, dataInicio, obj));
         
-        System.out.println("Aluno: " + alunoSelecionado);
-        System.out.println("Data: " + dataInicio);
-        System.out.println("Objetivo: " + obj);
-        //stage.close();
+        stage.close();
     }
     
 }
