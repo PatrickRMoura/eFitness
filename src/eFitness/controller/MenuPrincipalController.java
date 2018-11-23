@@ -80,7 +80,7 @@ public class MenuPrincipalController implements Initializable {
     public void cadastrarTreino(ActionEvent event) throws IOException {
         Parent root;
         Stage stage = new Stage();
-        root = FXMLLoader.load(efitness.Efitness.class.getResource("view/exercicio/CadastrarTreino.fxml"));
+        root = FXMLLoader.load(efitness.Efitness.class.getResource("view/Treino/CadastrarTreino.fxml"));
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(painelMenuPrincipal.getScene().getWindow());
