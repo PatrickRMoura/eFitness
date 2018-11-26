@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 import efitness.model.Aluno;
 import efitness.negocio.AlunoNegocio;
 import efitness.negocio.NegocioException;
-
+import efitness.controller.avaliacao.ListarAvaliacoesController;
 /**
  *
  * @author Patrick Moura
@@ -125,6 +125,27 @@ public class ListarAlunosController implements Initializable {
         } catch (NegocioException ex) {
             Logger.getLogger(ListarAlunosController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    @FXML
+    public void listarAvaliacoes() throws IOException{
+      
+      Aluno aluno = tableViewAluno.getSelectionModel().getSelectedItem();
+            
+      if (aluno != null) {
+          FXMLLoader loader = new FXMLLoader(efitness.Efitness.class.getResource("view/avaliacao/ListarAvaliacoes.fxml"));                              
+          Parent root = (Parent) loader.load();
+          
+          ListarAvaliacoesController controller = (ListarAvaliacoesController) loader.getController();
+          controller.setAlunoSelecionado(aluno);
+          controller.listarAvaliacoes();
+          
+          Stage dialogStage = new Stage();
+          dialogStage.setScene(new Scene(root));
+          dialogStage.initModality(Modality.APPLICATION_MODAL);
+          dialogStage.showAndWait();          
+      }      
+            
     }
     
     @FXML

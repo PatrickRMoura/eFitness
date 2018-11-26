@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="efitness.controller.aluno.ListarAlunosController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="efitness.controller.aluno.ListarAlunosController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ToolBar prefHeight="40.0" prefWidth="200.0">
               <items>
-                <Button mnemonicParsing="false" text="Cadastrar" onAction="#cadastrarAluno" />
-                <Button mnemonicParsing="false" text="Editar" onAction="#editarAluno"/>
-                <Button mnemonicParsing="false" text="Deletar" onAction="#deletarAluno"/>
+                <Button mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastrar" />
+                <Button mnemonicParsing="false" onAction="#editarAluno" text="Editar" />
+                <Button mnemonicParsing="false" onAction="#deletarAluno" text="Deletar" />
                 <Label text="Pesquisar por nome: " />
-                <TextField fx:id="textProcurarNome" promptText="Digite para pesquisar" onAction="#pesquisarNome"/>
+                <TextField fx:id="textProcurarNome" onAction="#pesquisarNome" promptText="Digite para pesquisar" />
               </items>
             </ToolBar>
             <TableView fx:id="tableViewAluno" onSort="#listarAlunos" prefHeight="364.0" prefWidth="600.0">
@@ -26,6 +29,12 @@
                 <TableColumn fx:id="tableColumnTelefone" prefWidth="180.0" text="Telefone" />
               </columns>
             </TableView>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+               <items>
+                <Button mnemonicParsing="false" onAction="#listarAvaliacoes" text="Avaliação" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#listarAvaliacoes" text="Treino" />
+               </items>
+            </ToolBar>
          </children></VBox>
    </children>
 </AnchorPane>
