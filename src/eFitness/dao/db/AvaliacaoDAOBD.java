@@ -7,7 +7,7 @@ import java.util.List;
 import efitness.model.Aluno;
 import efitness.dao.AvaliacaoDAO;
 import efitness.model.Avaliacao;
-import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -24,7 +24,7 @@ public class AvaliacaoDAOBD extends DAOBD<Avaliacao> implements AvaliacaoDAO{
             conectarObtendoID(sql);
             
             comando.setInt(1, avaliacao.getAluno().getId());
-            comando.setDate(2, new java.sql.Date(avaliacao.getData().getTime()));
+            comando.setObject(2, avaliacao.getData());
             comando.setDouble(3, avaliacao.getMassaCorporal());
             comando.setDouble(4, avaliacao.getFrequenciaCardiaca());
             comando.setDouble(5, avaliacao.getPressaoArterial());            
@@ -96,14 +96,14 @@ public class AvaliacaoDAOBD extends DAOBD<Avaliacao> implements AvaliacaoDAO{
             while (resultado.next()) {
                 int id = resultado.getInt("id");
                 int id_aluno = resultado.getInt("id_aluno");
-                String date = resultado.getString("date");
+                String data = resultado.getString("data");
                 double massaCorporal = resultado.getDouble("massa_corporal");
                 double frequenciaCardiaca = resultado.getDouble("frequencia_cardiaca");
                 double pressaoArterial = resultado.getDouble("pressao_arterial");
                                 
                 Avaliacao a = new Avaliacao(id, 
                   alunoDAOBD.procurarPorId(id_aluno), 
-                  Date.valueOf(date), 
+                  LocalDate.parse(data), 
                   massaCorporal, 
                   frequenciaCardiaca,
                   pressaoArterial);
@@ -134,14 +134,14 @@ public class AvaliacaoDAOBD extends DAOBD<Avaliacao> implements AvaliacaoDAO{
             if (resultado.next()) {
                 int _id = resultado.getInt("id");
                 int id_aluno = resultado.getInt("id_aluno");
-                String date = resultado.getString("date");
+                String data = resultado.getString("data");
                 double massaCorporal = resultado.getDouble("massa_corporal");
                 double frequenciaCardiaca = resultado.getDouble("frequencia_cardiaca");
                 double pressaoArterial = resultado.getDouble("pressao_arterial");
                 
                 Avaliacao a = new Avaliacao(id, 
                   alunoDAOBD.procurarPorId(id_aluno), 
-                  Date.valueOf(date), 
+                  LocalDate.parse(data),
                   massaCorporal, 
                   frequenciaCardiaca,
                   pressaoArterial);
@@ -180,7 +180,7 @@ public class AvaliacaoDAOBD extends DAOBD<Avaliacao> implements AvaliacaoDAO{
                 AlunoDAOBD alunoDAOBD = new AlunoDAOBD();
                 Avaliacao a = new Avaliacao(id, 
                   alunoDAOBD.procurarPorId(id_aluno), 
-                  Date.valueOf(date), 
+                  LocalDate.parse(date), 
                   massaCorporal, 
                   frequenciaCardiaca,
                   pressaoArterial);

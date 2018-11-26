@@ -13,8 +13,6 @@ import efitness.model.Avaliacao;
 import efitness.negocio.AvaliacaoNegocio;
 import efitness.negocio.NegocioException;
 
-import java.time.ZoneId;
-import java.util.Date;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
@@ -54,16 +52,13 @@ public class CadastrarAvaliacaoController implements Initializable {
     @FXML
     public void salvarDados() throws NegocioException{
         Stage stage = (Stage) btnCancelar.getScene().getWindow();        
-        
-        Date data = Date.from(datePickerData.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-        
-        
+                       
         if (avaliacaoSelecionada == null) {            
           String tipoOpcao = "cadastrar";
           if (confirmarAcao(tipoOpcao)) {
             try {
               avaliacaoNegocio.salvar(new Avaliacao(alunoSelecionado, 
-                data,
+                datePickerData.getValue(),
                 Double.parseDouble(textMassaCorporal.getText()),
                 Double.parseDouble(textFrequenciaCardiaca.getText()),
                 Double.parseDouble(textPressaoArterial.getText())
@@ -78,7 +73,7 @@ public class CadastrarAvaliacaoController implements Initializable {
           String tipoOpcao = "editar";
           if (confirmarAcao(tipoOpcao)) {
             try {
-              avaliacaoSelecionada.setData(data);
+              avaliacaoSelecionada.setData(datePickerData.getValue());
               avaliacaoSelecionada.setMassaCorporal(Double.parseDouble(textMassaCorporal.getText()));
               avaliacaoSelecionada.setFrequenciaCardiaca(Double.parseDouble(textFrequenciaCardiaca.getText()));
               avaliacaoSelecionada.setPressaoArterial(Double.parseDouble(textPressaoArterial.getText()));
@@ -109,6 +104,7 @@ public class CadastrarAvaliacaoController implements Initializable {
     public void setAvaliacaoSelecionada(Avaliacao avaliacaoSelecionada) {
       this.avaliacaoSelecionada = avaliacaoSelecionada;
       setAlunoSelecionado(avaliacaoSelecionada.getAluno());
+      datePickerData.setValue(avaliacaoSelecionada.getData());
       textFrequenciaCardiaca.setText(String.valueOf(avaliacaoSelecionada.getFrequenciaCardiaca()));
       textMassaCorporal.setText(String.valueOf(avaliacaoSelecionada.getMassaCorporal()));
       textPressaoArterial.setText(String.valueOf(avaliacaoSelecionada.getPressaoArterial()));

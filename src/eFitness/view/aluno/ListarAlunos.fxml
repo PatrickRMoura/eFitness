@@ -18,8 +18,8 @@
                 <Button mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastrar" />
                 <Button mnemonicParsing="false" onAction="#editarAluno" text="Editar" />
                 <Button mnemonicParsing="false" onAction="#deletarAluno" text="Deletar" />
-                <Label text="Pesquisar por nome: " />
-                <TextField fx:id="textProcurarNome" onAction="#pesquisarNome" promptText="Digite para pesquisar" />
+                <Label text="Pesquisar por nome: " translateX="10.0" />
+                <TextField fx:id="textProcurarNome" onAction="#pesquisarNome" promptText="Digite para pesquisar" translateX="10.0" />
               </items>
             </ToolBar>
             <TableView fx:id="tableViewAluno" onSort="#listarAlunos" prefHeight="364.0" prefWidth="600.0">
@@ -31,8 +31,9 @@
             </TableView>
             <ToolBar prefHeight="40.0" prefWidth="200.0">
                <items>
-                <Button mnemonicParsing="false" onAction="#listarAvaliacoes" text="Avaliação" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#listarAvaliacoes" text="Treino" />
+                <Button mnemonicParsing="false" onAction="#listarAvaliacoes" text="Avaliações" />
+                  <Button mnemonicParsing="false" onAction="#listarAvaliacoes" text="Matrículas" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#listarAvaliacoes" text="Treinos" />
                </items>
             </ToolBar>
          </children></VBox>

@@ -5,17 +5,17 @@ package efitness.model;
  * @author Gustavo Fonseca
  */
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Avaliacao {
     private int id;
     private Aluno aluno;
-    private Date data;
+    private LocalDate data;
     private double massaCorporal;
     private double frequenciaCardiaca;
     private double pressaoArterial;
 
-    public Avaliacao(int id, Aluno aluno, Date data, double massaCorporal, double frequenciaCardiaca, double pressaoArterial) {
+    public Avaliacao(int id, Aluno aluno, LocalDate data, double massaCorporal, double frequenciaCardiaca, double pressaoArterial) {
         this.id = id;
         this.aluno = aluno;
         this.data = data;
@@ -23,7 +23,7 @@ public class Avaliacao {
         this.frequenciaCardiaca = frequenciaCardiaca;
         this.pressaoArterial = pressaoArterial;        
     }
-        public Avaliacao(Aluno aluno, Date data, double massaCorporal, double frequenciaCardiaca, double pressaoArterial) {        
+        public Avaliacao(Aluno aluno, LocalDate data, double massaCorporal, double frequenciaCardiaca, double pressaoArterial) {        
         this.aluno = aluno;
         this.data = data;
         this.massaCorporal = massaCorporal;
@@ -47,11 +47,11 @@ public class Avaliacao {
       this.aluno = aluno;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
       return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
       this.data = data;
     }
 
