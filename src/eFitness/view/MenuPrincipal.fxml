@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="painelMenuPrincipal" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="efitness.controller.MenuPrincipalController">
+<AnchorPane id="AnchorPane" fx:id="painelMenuPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="efitness.controller.MenuPrincipalController">
    <children>
       <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="Sistema">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#Sair" text="Sair"/>
+              <MenuItem mnemonicParsing="false" onAction="#Sair" text="Sobre" />
+                  <MenuItem mnemonicParsing="false" onAction="#Sair" text="Sair" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Aluno">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastrar" />
-              <MenuItem mnemonicParsing="false" onAction="#listarAlunos" text="Listar Todos" />
-              <MenuItem mnemonicParsing="false" onAction="#cadastrarTreino" text="Treinos" />
+              <MenuItem mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastro" />
+              <MenuItem mnemonicParsing="false" onAction="#listarAlunos" text="Pesquisa" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Exercicio">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#cadastrarExercicio" text="Cadastrar Exercicio" />
-                  <MenuItem mnemonicParsing="false" onAction="#listarExercicios" text="Listar todos os Exercicios" />
+                <MenuItem mnemonicParsing="false" onAction="#cadastrarExercicio" text="Cadastro" />
+                  <MenuItem mnemonicParsing="false" onAction="#listarExercicios" text="Pesquisa" />
               </items>
             </Menu>
         </menus>
       </MenuBar>
-      <ToolBar layoutY="25.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-        <items>
-          <Button mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastrar Aluno" />
-            <Button mnemonicParsing="false" onAction="#cadastrarExercicio" text="Cadastrar Exercicio" />
-        </items>
-      </ToolBar>
+      <ImageView blendMode="MULTIPLY" fitHeight="300.0" fitWidth="438.0" layoutX="155.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
    </children>
 </AnchorPane>

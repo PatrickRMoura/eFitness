@@ -30,7 +30,7 @@
             <Label text="Massa Corporal" GridPane.rowIndex="2" />
             <Label text="Frequência Cardíaca" GridPane.rowIndex="3" />
             <Label text="Pressão Arterial" GridPane.rowIndex="4" />
-            <TextField fx:id="textAluno" GridPane.columnIndex="1" />
+            <TextField fx:id="textAluno" disable="true" GridPane.columnIndex="1" />
             <TextField fx:id="textMassaCorporal" prefHeight="27.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="textFrequenciaCardiaca" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="textPressaoArterial" GridPane.columnIndex="1" GridPane.rowIndex="4" />

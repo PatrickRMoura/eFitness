@@ -1,6 +1,5 @@
 package efitness.controller.avaliacao;
 
-import efitness.controller.avaliacao.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -11,22 +10,16 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import efitness.model.Aluno;
 import efitness.model.Avaliacao;
-import efitness.model.Exercicio;
 import efitness.negocio.AvaliacaoNegocio;
-import efitness.negocio.AlunoNegocio;
 import efitness.negocio.NegocioException;
-import java.time.LocalDate;
+
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.util.Date;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.util.StringConverter;
-
 
 public class CadastrarAvaliacaoController implements Initializable {
-    private AvaliacaoNegocio avaliacaoNegocio = new AvaliacaoNegocio();
-    private AlunoNegocio alunoNegocio = new AlunoNegocio();
+    private AvaliacaoNegocio avaliacaoNegocio;    
     private Aluno alunoSelecionado;
     private Avaliacao avaliacaoSelecionada;
         
@@ -39,7 +32,7 @@ public class CadastrarAvaliacaoController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      
+      avaliacaoNegocio = new AvaliacaoNegocio();        
     }
     
     public boolean confirmarAcao(){
@@ -116,7 +109,6 @@ public class CadastrarAvaliacaoController implements Initializable {
     public void setAvaliacaoSelecionada(Avaliacao avaliacaoSelecionada) {
       this.avaliacaoSelecionada = avaliacaoSelecionada;
       setAlunoSelecionado(avaliacaoSelecionada.getAluno());
-      textAluno.setDisable(true);      
       textFrequenciaCardiaca.setText(String.valueOf(avaliacaoSelecionada.getFrequenciaCardiaca()));
       textMassaCorporal.setText(String.valueOf(avaliacaoSelecionada.getMassaCorporal()));
       textPressaoArterial.setText(String.valueOf(avaliacaoSelecionada.getPressaoArterial()));
