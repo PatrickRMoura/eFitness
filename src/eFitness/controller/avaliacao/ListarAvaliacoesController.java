@@ -57,15 +57,10 @@ public class ListarAvaliacoesController implements Initializable{
         tableColumnMassaCorporal.setCellValueFactory(new PropertyValueFactory<>("massaCorporal"));
         tableColumnFrequenciaCardiaca.setCellValueFactory(new PropertyValueFactory<>("frequenciaCardiaca"));
         tableColumnPressaoArterial.setCellValueFactory(new PropertyValueFactory<>("pressaoArterial"));
-        
-        try {
-          listaAvaliacoes = avaliacaoNegocio.listarPorAluno(alunoSelecionado);
-          observableListaAvaliacoes = FXCollections.observableArrayList(listaAvaliacoes);
-          tableViewAvaliacao.setItems(observableListaAvaliacoes);
-        }
-        catch (NegocioException ex) {
-          Logger.getLogger(ListarAvaliacoesController.class.getName()).log(Level.SEVERE, null, ex);
-        }                                       
+                
+        listaAvaliacoes = avaliacaoNegocio.listarPorAluno(alunoSelecionado);
+        observableListaAvaliacoes = FXCollections.observableArrayList(listaAvaliacoes);
+        tableViewAvaliacao.setItems(observableListaAvaliacoes);                                             
     }
     
     @FXML

@@ -31,9 +31,9 @@
             </TableView>
             <ToolBar prefHeight="40.0" prefWidth="200.0">
                <items>
-                <Button mnemonicParsing="false" onAction="#listarAvaliacoes" text="Avaliações" />
-                  <Button mnemonicParsing="false" onAction="#listarAvaliacoes" text="Matrículas" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#listarAvaliacoes" text="Treinos" />
+                <Button mnemonicParsing="false" onAction="#abrirAvaliacoes" text="Avaliações" />
+                  <Button mnemonicParsing="false" onAction="#abrirMatriculas" text="Matrículas" />
+                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#abrirAvaliacoes" text="Treinos" />
                </items>
             </ToolBar>
          </children></VBox>

@@ -27,6 +27,7 @@ import efitness.model.Aluno;
 import efitness.negocio.AlunoNegocio;
 import efitness.negocio.NegocioException;
 import efitness.controller.avaliacao.ListarAvaliacoesController;
+import efitness.controller.matricula.ListarMatriculasController;
 /**
  *
  * @author Patrick Moura
@@ -34,7 +35,6 @@ import efitness.controller.avaliacao.ListarAvaliacoesController;
 public class ListarAlunosController implements Initializable {
     private AlunoNegocio alunoNegocio;
     private List<Aluno> listaAlunos;
-    private Aluno alunoSelecionado;
     private ObservableList<Aluno> observableListaPacientes;
     
     @FXML private TableView<Aluno> tableViewAluno;
@@ -69,6 +69,7 @@ public class ListarAlunosController implements Initializable {
         stage.setScene(new Scene(root));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
+        this.listarAlunos();
     }
     
     @FXML
@@ -128,7 +129,7 @@ public class ListarAlunosController implements Initializable {
     }
     
     @FXML
-    public void listarAvaliacoes() throws IOException{
+    public void abrirAvaliacoes() throws IOException{
       
       Aluno aluno = tableViewAluno.getSelectionModel().getSelectedItem();
             
@@ -144,8 +145,26 @@ public class ListarAlunosController implements Initializable {
           dialogStage.setScene(new Scene(root));
           dialogStage.initModality(Modality.APPLICATION_MODAL);
           dialogStage.showAndWait();          
-      }      
+      }                  
+    }
+    
+    public void abrirMatriculas() throws IOException{
+      
+      Aluno aluno = tableViewAluno.getSelectionModel().getSelectedItem();
             
+      if (aluno != null) {
+          FXMLLoader loader = new FXMLLoader(efitness.Efitness.class.getResource("view/matricula/ListarMatriculas.fxml"));                              
+          Parent root = (Parent) loader.load();
+          
+          ListarMatriculasController controller = (ListarMatriculasController) loader.getController();
+          controller.setAlunoSelecionado(aluno);
+          controller.listarMatriculas();
+          
+          Stage dialogStage = new Stage();
+          dialogStage.setScene(new Scene(root));
+          dialogStage.initModality(Modality.APPLICATION_MODAL);
+          dialogStage.showAndWait();          
+      }                  
     }
     
     @FXML

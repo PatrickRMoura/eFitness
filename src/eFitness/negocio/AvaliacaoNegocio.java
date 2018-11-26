@@ -53,12 +53,9 @@ public class AvaliacaoNegocio {
         return (avaliacao);
     }
     
-    public List<Avaliacao> listarPorAluno(Aluno aluno) throws NegocioException {
+    public List<Avaliacao> listarPorAluno(Aluno aluno) {
         List<Avaliacao> listaAvaliacoes = avaliacaoDAO.listarPorAluno(aluno);
         
-        if (listaAvaliacoes == null) {
-            throw new NegocioException("Sem avaliações");
-        }
         return (listaAvaliacoes);
     }
     
