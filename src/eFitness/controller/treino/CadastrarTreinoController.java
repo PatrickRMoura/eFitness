@@ -32,6 +32,7 @@ public class CadastrarTreinoController implements Initializable {
     
     @FXML private ComboBox<Aluno> idAluno;
     @FXML private Button btnCancelar;
+    @FXML private Button btnSalvar;
     @FXML private DatePicker datepicker;
     @FXML private TextField objetivo;
     
@@ -87,11 +88,13 @@ public class CadastrarTreinoController implements Initializable {
 
     @FXML
     public void salvarDados() throws NegocioException{
-        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        Stage stage = (Stage) btnSalvar.getScene().getWindow();
         Aluno alunoSelecionado = idAluno.getValue();
         Date dataInicio = Date.from(datepicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         String obj = objetivo.getText();
-        treinoNegocio.salvar(new Treino(alunoSelecionado, dataInicio, obj));
+        
+        if(confirmarAcao())
+            treinoNegocio.salvar(new Treino(alunoSelecionado, dataInicio, obj));
         
         stage.close();
     }
