@@ -1,8 +1,7 @@
-# E-fitness
+# e-Fitness
 
 E-fitness trata-se de um sistema capaz de gerenciar academias, possuindo módulos de controle de matrículas
-de alunos, loja virtual, controle de acesso biométrico, aplicativo para dispositivos móveis, 
-registro de evolução dos alunos e controle de atividades.
+de alunos e registro de evolução dos alunos.
 
 ## Tecnologias Utilizadas:
 
