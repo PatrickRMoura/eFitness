@@ -9,5 +9,5 @@ import efitness.model.Aluno;
  */
 public interface AlunoDAO extends DAO<Aluno>{
     public Aluno procurarPorRG(String rg);
-    public List<Aluno> listarPorNome(String nome); 
+    public List<Aluno> listarPorNome(String nome);
 }
