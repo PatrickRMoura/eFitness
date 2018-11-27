@@ -87,6 +87,17 @@ public class MenuPrincipalController implements Initializable {
         stage.showAndWait();
     }
     
+    @FXML
+    public void cadastrarRestricao(ActionEvent event) throws IOException {
+        Parent root;
+        Stage stage = new Stage();
+        root = FXMLLoader.load(efitness.Efitness.class.getResource("view/restricao/CadastrarRestricao.fxml"));
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(painelMenuPrincipal.getScene().getWindow());
+        stage.showAndWait();
+    }
+    
        @FXML
     public void Sair(ActionEvent event) throws IOException {
         System.exit(0);
