@@ -22,8 +22,8 @@
               <columns>
                   <TableColumn fx:id="tableColumnId" prefWidth="59.0" text="Id" />
                 <TableColumn fx:id="tableColumnData" prefWidth="120.0" text="Data" />
-                <TableColumn fx:id="tableColumnValor" prefWidth="126.0" text="Valor" />
-                <TableColumn fx:id="tableColumnPeriodicidade" prefWidth="167.0" text="Periodicidade" />
+                <TableColumn fx:id="tableColumnValor" prefWidth="126.0" text="Valor (R$)" />
+                <TableColumn fx:id="tableColumnPeriodicidade" prefWidth="167.0" text="Periodicidade (dias)" />
                   <TableColumn fx:id="tableColumnVencimento" maxWidth="120.0" prefWidth="172.0" text="Vencimento" />
               </columns>
             </TableView>

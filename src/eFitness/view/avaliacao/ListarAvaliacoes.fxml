@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="efitness.controller.avaliacao.ListarAvaliacoesController">
+<AnchorPane id="AnchorPane" prefHeight="448.0" prefWidth="648.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="efitness.controller.avaliacao.ListarAvaliacoesController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -18,16 +18,15 @@
                 <Button mnemonicParsing="false" onAction="#deletarAvaliacao" text="Deletar" />
               </items>
             </ToolBar>
-            <TableView fx:id="tableViewAvaliacao" onSort="#listarAvaliacoes" prefHeight="364.0" prefWidth="600.0">
+            <TableView fx:id="tableViewAvaliacao" onSort="#listarAvaliacoes" prefHeight="364.0" prefWidth="626.0">
               <columns>
                   <TableColumn fx:id="tableColumnId" prefWidth="59.0" text="Id" />
-                <TableColumn fx:id="tableColumnData" prefWidth="120.0" text="Data" />
-                <TableColumn fx:id="tableColumnMassaCorporal" prefWidth="126.0" text="Massa Corporal" />
-                <TableColumn fx:id="tableColumnFrequenciaCardiaca" prefWidth="167.0" text="Frequência Cardíaca" />
-                  <TableColumn fx:id="tableColumnPressaoArterial" maxWidth="120.0" prefWidth="172.0" text="Pressão Arterial" />
+                <TableColumn fx:id="tableColumnData" prefWidth="97.0" text="Data" />
+                <TableColumn fx:id="tableColumnMassaCorporal" prefWidth="120.0" text="Massa Corporal" />
+                <TableColumn fx:id="tableColumnFrequenciaCardiaca" prefWidth="196.0" text="Frequência Cardíaca (bpm)" />
+                  <TableColumn fx:id="tableColumnPressaoArterial" maxWidth="175.0" prefWidth="174.0" text="Pressão Arterial (mmHg)" />
               </columns>
             </TableView>
          </children></VBox>
-      <ToolBar layoutY="400.0" prefHeight="40.0" prefWidth="600.0" />
    </children>
 </AnchorPane>

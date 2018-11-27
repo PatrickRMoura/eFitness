@@ -1,6 +1,7 @@
 package efitness.controller.matricula;
 
 import efitness.model.Aluno;
+import efitness.model.Avaliacao;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -25,6 +26,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import efitness.model.Matricula;
 import efitness.negocio.MatriculaNegocio;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javafx.scene.control.TableCell;
 
 /**
  *
@@ -39,14 +43,15 @@ public class ListarMatriculasController implements Initializable{
         
     @FXML private TableView<Matricula> tableViewMatricula;
     @FXML private TableColumn<Matricula, String> tableColumnId;
-    @FXML private TableColumn<Matricula, String> tableColumnData;
+    @FXML private TableColumn<Matricula, LocalDate> tableColumnData;
     @FXML private TableColumn<Matricula, String> tableColumnValor;
     @FXML private TableColumn<Matricula, String> tableColumnPeriodicidade;
-    @FXML private TableColumn<Matricula, String> tableColumnVencimento;
+    @FXML private TableColumn<Matricula, LocalDate> tableColumnVencimento;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        matriculaNegocio = new MatriculaNegocio();     
+        matriculaNegocio = new MatriculaNegocio();    
+        configuraColunas();
     }
     
     @FXML
@@ -118,6 +123,51 @@ public class ListarMatriculasController implements Initializable{
                 }
             }
         }        
+    }
+    
+    private void configuraColunas() {
+      configuraFormatacaoData();
+      configuraFormatacaoVencimento();
+    }
+    
+    private void configuraFormatacaoData() {
+      tableColumnData.setCellFactory(column -> {
+        TableCell<Matricula, LocalDate> cell = new TableCell<Matricula, LocalDate>() {             
+           private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            @Override
+            protected void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+                if(empty) {
+                    setText(null);
+                }
+                else {
+                    setText(formatter.format(item));
+                }
+            }
+        };
+        return cell;
+      });
+    }
+    
+    private void configuraFormatacaoVencimento() {
+      tableColumnVencimento.setCellFactory(column -> {
+        TableCell<Matricula, LocalDate> cell = new TableCell<Matricula, LocalDate>() {             
+           private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            @Override
+            protected void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+                if(empty) {
+                    setText(null);
+                }
+                else {
+                    setText(formatter.format(item));
+                }
+            }
+        };
+        return cell;
+      });
     }
     
     public void setAlunoSelecionado(Aluno alunoSelecionado){

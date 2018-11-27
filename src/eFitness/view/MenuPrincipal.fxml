@@ -14,14 +14,14 @@
         <menus>
           <Menu mnemonicParsing="false" text="Sistema">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#Sair" text="Sobre" />
+              <MenuItem mnemonicParsing="false" onAction="#sobre" text="Sobre" />
                   <MenuItem mnemonicParsing="false" onAction="#Sair" text="Sair" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Aluno">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastrar" />
-              <MenuItem mnemonicParsing="false" onAction="#listarAlunos" text="Listar Todos" />
+              <MenuItem mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastro" />
+              <MenuItem mnemonicParsing="false" onAction="#listarAlunos" text="Pesquisa" />
               <MenuItem mnemonicParsing="false" onAction="#cadastrarTreino" text="Treinos" />
               <MenuItem mnemonicParsing="false" onAction="#cadastrarRestricao" text="Restrições" />
 

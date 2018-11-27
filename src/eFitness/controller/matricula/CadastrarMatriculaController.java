@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import efitness.model.Matricula;
 import efitness.negocio.MatriculaNegocio;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import javafx.scene.control.DatePicker;
 
 /**
@@ -34,7 +35,8 @@ public class CadastrarMatriculaController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        matriculaNegocio = new MatriculaNegocio();        
+        matriculaNegocio = new MatriculaNegocio();
+        inicializaCampos();
     }
     
     @FXML
@@ -88,6 +90,10 @@ public class CadastrarMatriculaController implements Initializable {
             return true;
         }
         return false;
+    }
+    
+    private void inicializaCampos() {
+      datePickerData.setValue(LocalDate.now());
     }
 
     public void setMatriculaSelecionada(Matricula matriculaSelecionada) {

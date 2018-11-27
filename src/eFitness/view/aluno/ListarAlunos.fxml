@@ -11,9 +11,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="efitness.controller.aluno.ListarAlunosController">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutY="-29.0" prefHeight="429.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <ToolBar prefHeight="112.0" prefWidth="600.0">
               <items>
                 <Button mnemonicParsing="false" onAction="#cadastrarAluno" text="Cadastrar" />
                 <Button mnemonicParsing="false" onAction="#editarAluno" text="Editar" />
@@ -25,15 +25,14 @@
             <TableView fx:id="tableViewAluno" onSort="#listarAlunos" prefHeight="364.0" prefWidth="600.0">
               <columns>
                 <TableColumn fx:id="tableColumnRG" prefWidth="152.0" text="RG" />
-                <TableColumn fx:id="tableColumnNome" prefWidth="180.0" text="Nome" />
-                <TableColumn fx:id="tableColumnTelefone" prefWidth="180.0" text="Telefone" />
+                <TableColumn fx:id="tableColumnNome" editable="false" prefWidth="332.0" text="Nome" />
+                <TableColumn fx:id="tableColumnTelefone" prefWidth="113.0" text="Telefone" />
               </columns>
             </TableView>
-            <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <ToolBar prefHeight="110.0" prefWidth="600.0">
                <items>
                 <Button mnemonicParsing="false" onAction="#abrirAvaliacoes" text="Avaliações" />
                   <Button mnemonicParsing="false" onAction="#abrirMatriculas" text="Matrículas" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#abrirAvaliacoes" text="Treinos" />
                </items>
             </ToolBar>
          </children></VBox>

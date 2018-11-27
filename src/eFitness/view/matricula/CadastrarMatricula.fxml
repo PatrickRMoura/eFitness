@@ -31,9 +31,10 @@
             <Label text="Periodicidade" GridPane.rowIndex="3" />
             <Label text="Vencimento" GridPane.rowIndex="4" />
             <TextField fx:id="textAluno" disable="true" GridPane.columnIndex="1" />
-            <TextField fx:id="textValor" prefHeight="27.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="textPeriodicidade" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="textValor" maxWidth="-Infinity" prefHeight="27.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="textPeriodicidade" maxWidth="-Infinity" prefHeight="27.0" prefWidth="90.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <DatePicker fx:id="datePickerVencimento" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="dias" translateX="95.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <Button fx:id="btnSalvar" layoutX="358.0" layoutY="259.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />

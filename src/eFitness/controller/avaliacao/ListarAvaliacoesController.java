@@ -26,6 +26,11 @@ import javafx.stage.Stage;
 import efitness.model.Avaliacao;
 import efitness.negocio.AvaliacaoNegocio;
 import efitness.negocio.NegocioException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import javafx.scene.control.TableCell;
 
 /**
  *
@@ -40,14 +45,15 @@ public class ListarAvaliacoesController implements Initializable{
         
     @FXML private TableView<Avaliacao> tableViewAvaliacao;
     @FXML private TableColumn<Avaliacao, String> tableColumnId;
-    @FXML private TableColumn<Avaliacao, String> tableColumnData;    
+    @FXML private TableColumn<Avaliacao, LocalDate> tableColumnData;    
     @FXML private TableColumn<Avaliacao, String> tableColumnMassaCorporal;    
-    @FXML private TableColumn<Avaliacao, String> tableColumnFrequenciaCardiaca;    
-    @FXML private TableColumn<Avaliacao, String> tableColumnPressaoArterial; 
+    @FXML private TableColumn<Avaliacao, Object> tableColumnFrequenciaCardiaca;    
+    @FXML private TableColumn<Avaliacao, Object> tableColumnPressaoArterial; 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        avaliacaoNegocio = new AvaliacaoNegocio();    
+        avaliacaoNegocio = new AvaliacaoNegocio();
+        configuraFormatacaoColunas();
     }
     
     @FXML
@@ -120,6 +126,30 @@ public class ListarAvaliacoesController implements Initializable{
             }
         }
     }
+    
+    private void configuraFormatacaoColunas() {
+      configuraFormatacaoData();
+    }
+    
+    private void configuraFormatacaoData() {
+      tableColumnData.setCellFactory(column -> {
+        TableCell<Avaliacao, LocalDate> cell = new TableCell<Avaliacao, LocalDate>() {             
+           private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            @Override
+            protected void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+                if(empty) {
+                    setText(null);
+                }
+                else {
+                    setText(formatter.format(item));
+                }
+            }
+        };
+        return cell;
+      });
+    }    
     
     public void setAlunoSelecionado(Aluno alunoSelecionado){
         this.alunoSelecionado = alunoSelecionado;        

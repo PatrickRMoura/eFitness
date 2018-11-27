@@ -33,7 +33,7 @@ public class MatriculaDAOBD extends DAOBD<Matricula> implements MatriculaDAO {
             comando.setObject(2, matricula.getData());
             comando.setObject(3, matricula.getValor());
             comando.setInt(4, matricula.getPeriodicidade());
-            comando.setObject(5, matricula.getData());            
+            comando.setObject(5, matricula.getVencimento());            
             comando.executeUpdate();
             
             ResultSet resultado = comando.getGeneratedKeys();
@@ -76,7 +76,7 @@ public class MatriculaDAOBD extends DAOBD<Matricula> implements MatriculaDAO {
             comando.setObject(1, matricula.getData());
             comando.setBigDecimal(2, matricula.getValor());
             comando.setInt(3, matricula.getPeriodicidade());
-            comando.setObject(4, matricula.getData());
+            comando.setObject(4, matricula.getVencimento());
             comando.setInt(5, matricula.getId());
             comando.executeUpdate();
 
