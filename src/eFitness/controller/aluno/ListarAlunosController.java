@@ -28,6 +28,7 @@ import efitness.negocio.AlunoNegocio;
 import efitness.negocio.NegocioException;
 import efitness.controller.avaliacao.ListarAvaliacoesController;
 import efitness.controller.matricula.ListarMatriculasController;
+import efitness.controller.restricao.ListarRestricoesController;
 import efitness.controller.treino.ListarTreinosController;
 /**
  *
@@ -179,6 +180,25 @@ public class ListarAlunosController implements Initializable {
           ListarTreinosController controller = (ListarTreinosController) loader.getController();
           controller.setAlunoSelecionado(aluno);
           controller.listarTreinos();
+          
+          Stage dialogStage = new Stage();
+          dialogStage.setScene(new Scene(root));
+          dialogStage.initModality(Modality.APPLICATION_MODAL);
+          dialogStage.showAndWait();          
+      }                  
+    }
+    
+    public void abrirRestricoes() throws IOException{
+      
+      Aluno aluno = tableViewAluno.getSelectionModel().getSelectedItem();
+            
+      if (aluno != null) {
+          FXMLLoader loader = new FXMLLoader(efitness.Efitness.class.getResource("view/restricao/ListarRestricoes.fxml"));                              
+          Parent root = (Parent) loader.load();
+          
+          ListarRestricoesController controller = (ListarRestricoesController) loader.getController();
+          controller.setAlunoSelecionado(aluno);
+          controller.listarRestricoes();
           
           Stage dialogStage = new Stage();
           dialogStage.setScene(new Scene(root));

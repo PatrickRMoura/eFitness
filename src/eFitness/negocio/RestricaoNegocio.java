@@ -4,6 +4,7 @@ import efitness.dao.db.RestricaoDAOBD;
 import java.util.List;
 import efitness.model.Restricao;
 import efitness.dao.RestricaoDAO;
+import efitness.model.Aluno;
 
 /**
  *
@@ -47,7 +48,9 @@ public class RestricaoNegocio {
         return (restricao);
     }
    
-    
+     public List<Restricao> listarPorAluno(Aluno aluno) {
+        return (restricaoDAO.listarPorAluno(aluno));
+    }
     
     
     private void validarCamposObrigatorios(Restricao restricao) throws NegocioException {

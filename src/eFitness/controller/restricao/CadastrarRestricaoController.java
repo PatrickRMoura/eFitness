@@ -29,6 +29,7 @@ public class CadastrarRestricaoController implements Initializable {
     private AlunoNegocio alunoNegocio = new AlunoNegocio();
     private List<Aluno> listaAlunos;
     private ObservableList<Aluno> observableListAlunos;
+    private Aluno alunoSelecionado;
     
     @FXML private ComboBox<Aluno> idAluno;
     @FXML private TextField cid;
@@ -101,5 +102,8 @@ public class CadastrarRestricaoController implements Initializable {
         stage.close();
     }
     
+     public void setAlunoSelecionado(Aluno alunoSelecionado){
+        this.alunoSelecionado = alunoSelecionado;        
+    }
 }
 

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import efitness.model.Aluno;
 import efitness.dao.RestricaoDAO;
+import efitness.model.Matricula;
 import efitness.model.Restricao;
 import java.sql.Date;
 
@@ -152,11 +153,39 @@ public class RestricaoDAOBD extends DAOBD<Restricao> implements RestricaoDAO{
     @Override
     public List<Restricao> listarPorAluno(Aluno aluno) {
         List<Restricao> listaRestricoes = new ArrayList<>();
-        String sql = "SELECT * FROM restricao INNER JOIN aluno WHERE restricao.? = aluno.id ";
+        String sql = "SELECT * FROM restricao WHERE id_aluno = ?";
+         
+        try {
+            conectar(sql);
+            comando.setInt(1, aluno.getId());
+            ResultSet resultado = comando.executeQuery();
 
+            while (resultado.next()) {
+                int id = resultado.getInt("id");
+                int id_aluno = resultado.getInt("id_aluno");
+                String _cid = resultado.getString("cid");
+                String _causa = resultado.getString("causa");
+                String _descricao = resultado.getString("descricao");
+                    
+                AlunoDAOBD alunoDAOBD = new AlunoDAOBD();
+                Restricao m = new Restricao(id, 
+                  alunoDAOBD.procurarPorId(id_aluno), 
+                    _cid,
+                    _causa,
+                    _descricao);
+                
+                listaRestricoes.add(m);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Erro de Sistema - Problema ao buscar as avaliações do Banco de Dados!");
+            throw new BDException(ex);
+        } finally {
+            fecharConexao();
+        }
         return (listaRestricoes);
     }
 
+    
     @Override
     public Restricao procurarPorAluno(Aluno aluno) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
