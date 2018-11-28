@@ -19,7 +19,7 @@ git@github.com:PatrickRMoura/eFitness.git
 
 ## Preparação do ambiente e do projeto
 
-1. Instalar [PostgreSQL](https://www.postgresql.org/download/) e fazer download do driver [PostgresJDBC] (https://jdbc.postgresql.org/)
+1. Instalar [PostgreSQL](https://www.postgresql.org/download/) e fazer download do driver [PostgresJDBC](https://jdbc.postgresql.org/)
 2. Nas Bibliotecas do projeto, adicionar o arquivo .jar baixado
 3. Construir o projeto e executar o script de geração do BD
 
