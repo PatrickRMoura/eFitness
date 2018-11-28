@@ -1,18 +1,12 @@
 # e-Fitness
-
 E-fitness trata-se de um sistema capaz de gerenciar academias, possuindo módulos de controle de matrículas
 de alunos e registro de evolução dos alunos.
 
 ## Tecnologias Utilizadas:
-
-Linguagem: JAVA
-
-Arquitetura: MVC(Model View Controller)
-
-Banco de dados: [PostgreSQL](https://www.postgresql.org/download/)
-
-Controle de versionamento/plataforma de hospedagem: Git e GitHub
-
+- Linguagem: JAVA
+- Arquitetura: MVC(Model View Controller)
+- Banco de dados: [PostgreSQL](https://www.postgresql.org/download/)
+- Controle de versionamento/plataforma de hospedagem: Git e GitHub
 
 ## Clonando o projeto
 `git clone https://github.com/PatrickRMoura/eFitness.git`
