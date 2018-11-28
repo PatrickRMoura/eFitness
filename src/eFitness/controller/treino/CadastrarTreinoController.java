@@ -29,6 +29,8 @@ public class CadastrarTreinoController implements Initializable {
     private AlunoNegocio alunoNegocio = new AlunoNegocio();
     private List<Aluno> listaAlunos;
     private ObservableList<Aluno> observableListAlunos;
+    private Aluno alunoSelecionado;
+    private Treino treinoSelecionado;
     
     @FXML private ComboBox<Aluno> idAluno;
     @FXML private Button btnCancelar;
@@ -86,15 +88,28 @@ public class CadastrarTreinoController implements Initializable {
         stage.close();
     }
 
+    
+     public void setTreinoSelecionada(Treino treinoSelecionado) {
+        this.treinoSelecionado = treinoSelecionado;
+        setAlunoSelecionado(treinoSelecionado.getAluno());
+        datepicker.setValue(treinoSelecionado.getData().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        objetivo.setText(String.valueOf(treinoSelecionado.getObjetivo()));     
+    }
+    
+    public void setAlunoSelecionado(Aluno alunoSelecionado) {
+      this.alunoSelecionado = alunoSelecionado;
+    }
+    
+    
     @FXML
     public void salvarDados() throws NegocioException{
         Stage stage = (Stage) btnSalvar.getScene().getWindow();
-        Aluno alunoSelecionado = idAluno.getValue();
+        Aluno alunoSelecionad = idAluno.getValue();
         Date dataInicio = Date.from(datepicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         String obj = objetivo.getText();
         
         if(confirmarAcao())
-            treinoNegocio.salvar(new Treino(alunoSelecionado, dataInicio, obj));
+            treinoNegocio.salvar(new Treino(alunoSelecionad, dataInicio, obj));
         
         stage.close();
     }

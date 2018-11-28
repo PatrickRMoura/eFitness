@@ -32,7 +32,8 @@
             <ToolBar prefHeight="110.0" prefWidth="600.0">
                <items>
                 <Button mnemonicParsing="false" onAction="#abrirAvaliacoes" text="Avaliações" />
-                  <Button mnemonicParsing="false" onAction="#abrirMatriculas" text="Matrículas" />
+                <Button mnemonicParsing="false" onAction="#abrirMatriculas" text="Matrículas" />
+                <Button mnemonicParsing="false" onAction="#abrirTreinos" text="Treinos" />
                </items>
             </ToolBar>
          </children></VBox>

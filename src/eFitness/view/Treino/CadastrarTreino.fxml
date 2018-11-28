@@ -23,8 +23,8 @@
             <Label text="Aluno" />
             <Label text="Objetivo" GridPane.rowIndex="1" />
             <Label text="Início" GridPane.rowIndex="2" />
-            <ComboBox fx:id="idAluno" promptText="Selecione" GridPane.columnIndex="1" />
             
+            <ComboBox fx:id="idAluno" promptText="Selecione" GridPane.columnIndex="1" />
             <TextField fx:id="objetivo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <DatePicker fx:id="datepicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>

@@ -6,8 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import efitness.model.Aluno;
 import efitness.dao.TreinoDAO;
+import efitness.model.Matricula;
 import efitness.model.Treino;
+import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -147,8 +150,33 @@ public class TreinoDAOBD extends DAOBD<Treino> implements TreinoDAO{
     @Override
     public List<Treino> listarPorAluno(Aluno aluno) {
         List<Treino> listaTreinos = new ArrayList<>();
-        String sql = "SELECT * FROM treino INNER JOIN aluno WHERE treino.? = aluno.id ";
+        String sql = "SELECT * FROM treino WHERE id_aluno = ?";
+         
+        try {
+            conectar(sql);
+            comando.setInt(1, aluno.getId());
+            ResultSet resultado = comando.executeQuery();
 
+            while (resultado.next()) {
+                int id = resultado.getInt("id");
+                int id_aluno = resultado.getInt("id_aluno");
+                Date data = resultado.getDate("data");
+                String objetivo = resultado.getString("objetivo");
+                    
+                AlunoDAOBD alunoDAOBD = new AlunoDAOBD();
+                Treino t = new Treino(id, 
+                  alunoDAOBD.procurarPorId(id_aluno), 
+                  data, 
+                  objetivo);
+                
+                listaTreinos.add(t);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Erro de Sistema - Problema ao buscar as Treinos do Banco de Dados!");
+            throw new BDException(ex);
+        } finally {
+            fecharConexao();
+        }
         return (listaTreinos);
     }
 

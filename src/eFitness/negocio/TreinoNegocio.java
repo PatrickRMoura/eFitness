@@ -4,6 +4,7 @@ import efitness.dao.db.TreinoDAOBD;
 import java.util.List;
 import efitness.model.Treino;
 import efitness.dao.TreinoDAO;
+import efitness.model.Aluno;
 
 /**
  *
@@ -47,6 +48,9 @@ public class TreinoNegocio {
         return (treino);
     }
    
+    public List<Treino> listarPorAluno(Aluno aluno) {
+        return (treinoDAO.listarPorAluno(aluno));
+    }
     
     
     
